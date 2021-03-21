@@ -1,10 +1,7 @@
-from src.cat import Cat
-from src.echo import Echo
-from src.exit import Exit
-from src.pwd import Pwd
-from src.wc import Wc
-from collections import defaultdict
 import re
+from collections import defaultdict
+
+from src.factory.abstract_factory import AbstractFactory
 
 EQ = '='
 PIPE = '|'
@@ -16,14 +13,10 @@ class Parser:
     Command and arguments parser,
     called in main.py to process all user inputs and print the outputs.
     """
-    def __init__(self):
+
+    def __init__(self, factory: AbstractFactory):
+        self.factory = factory
         self.globals = defaultdict()
-        self.command = defaultdict()
-        self.command["cat"] = Cat.execute
-        self.command["echo"] = Echo.execute
-        self.command["exit"] = Exit.execute
-        self.command["pwd"] = Pwd.execute
-        self.command["wc"] = Wc.execute
 
     def parse(self, line):
         """
@@ -100,10 +93,13 @@ class Parser:
             else:
                 print("Command {} is not found\n".format(line))
 
-    def parse_command(self, command):
+    def parse_command(self, command: str):
         """
-        Parse command (if correct) or return None otherwise.
+        Parse command and call one from factory
         """
-        if command in self.command.keys():
-            return self.command[command]
-        return None
+        try:
+            method = getattr(self.factory, command)
+        except AttributeError:
+            raise NotImplementedError("command `{}` does not implemented".format(command))
+
+        return method().execute

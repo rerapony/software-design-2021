@@ -1,9 +1,9 @@
-from src.command import Command
+from src.command.command import Command
 
 
 class Echo(Command):
-    @staticmethod
-    def execute(args):
+    """Implementation of Echo command"""
+    def execute(*args):
         """Begin command 'echo' execution."""
         ans = ""
         for arg in args:
@@ -13,3 +13,6 @@ class Echo(Command):
             else:
                 ans = "".join([ans, arg])
         return ans
+
+    def __str__(self):
+        return "echo"

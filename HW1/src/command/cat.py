@@ -1,10 +1,11 @@
-from src.command import Command
+from src.command.command import Command
 import os.path
 
 
 class Cat(Command):
-    @staticmethod
-    def execute(args):
+    """Implementation of Cat command"""
+
+    def execute(*args):
         """Begin command 'cat' execution."""
         print(args)
         if len(args) == 1:
@@ -15,3 +16,6 @@ class Cat(Command):
                     data = file.read()
                     return data
         raise ValueError
+
+    def __str__(self):
+        return "cat"

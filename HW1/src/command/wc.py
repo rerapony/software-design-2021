@@ -1,10 +1,10 @@
-from src.command import Command
+from src.command.command import Command
 import os.path
 
 
 class Wc(Command):
-    @staticmethod
-    def execute(args):
+    """Implementation of 'wc' command"""
+    def execute(*args):
         """Begin command 'wc' execution."""
 
         if len(args) == 1:
@@ -23,3 +23,6 @@ class Wc(Command):
 
                 return "{} {} {}".format(lines, words, chars)
         raise ValueError
+
+    def __str__(self):
+        return "wc"

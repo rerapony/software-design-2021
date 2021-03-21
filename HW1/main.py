@@ -1,9 +1,10 @@
+from src.factory.command_factory import CommandFactory
 from src.parser import Parser
 from sys import stdout as console
 
 
 def main():
-    parser = Parser()
+    parser = Parser(CommandFactory())
 
     while True:
         console.flush()
