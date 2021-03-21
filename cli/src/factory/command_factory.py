@@ -1,10 +1,10 @@
-from src.factory.abstract_factory import AbstractFactory
-from src.command.cat import Cat
-from src.command.command import Command
-from src.command.echo import Echo
-from src.command.exit import Exit
-from src.command.pwd import Pwd
-from src.command.wc import Wc
+from cli.src.command.cat import Cat
+from cli.src.command.command import Command
+from cli.src.command.echo import Echo
+from cli.src.command.exit import Exit
+from cli.src.command.pwd import Pwd
+from cli.src.command.wc import Wc
+from cli.src.factory.abstract_factory import AbstractFactory
 
 
 class CommandFactory(AbstractFactory):
@@ -18,7 +18,6 @@ class CommandFactory(AbstractFactory):
     - wc
     - exit
     """
-
     def cat(*args) -> Command:
         return Cat()
 

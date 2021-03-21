@@ -1,28 +1,30 @@
-from src.command.command import Command
 import os.path
+
+from cli.src.command.command import Command
 
 
 class Wc(Command):
     """Implementation of 'wc' command"""
-    def execute(*args):
+    def execute(self, result, pipe_count, *args):
         """Begin command 'wc' execution."""
 
-        if len(args) == 1:
-            path = args[0]
-            path = path.replace("'", "").replace('"', '')
-            if os.path.exists(path):
-                chars = 0
-                words = 0
-                lines = 0
+        if len(args) == 0:
+            if pipe_count > 0:
 
-                with open(path, 'r') as file:
-                    for line in file:
-                        lines += 1
-                        words += len(line.split())
-                        chars += len(line)
+                return "{} {} {}".format(len(result.split('\n')), len(result.split()), len(result))
+            raise ValueError("No arguments for 'wc' command")
 
-                return "{} {} {}".format(lines, words, chars)
-        raise ValueError
+        path = args[0]
+        if os.path.exists(path):
+            chars = 0
+            words = 0
+            lines = 0
+            with open(path, 'r') as file:
+                for line in file:
+                    lines += 1
+                    words += len(line.split())
+                    chars += len(line)
 
-    def __str__(self):
-        return "wc"
+            return "{} {} {}".format(lines, words, chars)
+
+        raise ValueError("Invalid path: {}".format(path))

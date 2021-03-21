@@ -1,7 +1,4 @@
-import re
 from collections import defaultdict
-
-from src.factory.abstract_factory import AbstractFactory
 
 EQ = '='
 PIPE = '|'
@@ -10,96 +7,75 @@ DOL = '$'
 
 class Parser:
     """
-    Command and arguments parser,
-    called in main.py to process all user inputs and print the outputs.
+    Command parser. Execution steps are:
+
+    1. Substitute variables.
+    2. Remove single quotes.
+    3. Check if line is an assignment, if it is, then update storage (globals) with a new variable.
+    4. Pipe split into separate tokens and return to shell for further execution.
     """
 
-    def __init__(self, factory: AbstractFactory):
-        self.factory = factory
+    def __init__(self):
         self.globals = defaultdict()
 
     def parse(self, line):
-        """
-        Parse user input into command and arguments,
-        call command with arguments and print an output.
-        """
-        # TODO: dollar $ substitution
+        line = self.substitute(line)
         line = line.strip('\n')
-        line = re.sub(r"^\s+|\s+$", "", line)
-        line = re.split(''' (?=(?:[^'"]|'[^']*'|"[^"]*")*$)''', line)
-        if len(line) == 1:
-            # it's either single function of function, awaiting arguments
-            line = line[0].split(EQ)
-            if len(line) == 1:
-                line = line[0]
-                command = self.parse_command(line)
-                if command:
-                    print(command(), end='\n')
-                elif len(line) > 1 and line[0] == DOL and line[1:] in self.globals.keys():
-                    key = line[1:]
-                    val = self.globals[key]
-                    command = self.parse_command(val)
-                    if command:
-                        print(command(), end='\n')
-                    else:
-                        print(val, end='\n')
+        line = self.remove_quotes(line)
+        is_assignment = self.check_assignment(line)
+
+        if is_assignment:
+            return None
+
+        commands = line.split(PIPE)
+        return [command.lstrip().split(' ') for command in commands]
+
+    def substitute(self, line: str) -> str:
+        """Executes $ substitution"""
+
+        line = line.replace('\"', '')
+
+        isDollar = False
+        isQuoteExpected = False
+        var_name = ''
+
+        for ch in line:
+            if ch == '\'':
+                isQuoteExpected = not isQuoteExpected
+
+            elif ch == DOL and not isQuoteExpected:
+                if isDollar:
+                    raise Exception("Incorrect statement")
+
+                isDollar = True
+            elif isDollar:
+                if not isQuoteExpected and (ch == ' ' or ch == '\n'):
+                    if var_name not in self.globals.keys():
+                        raise ValueError("Incorrect variable name: {}".format(var_name))
+                    var_value = self.globals[var_name]
+                    line = line.replace(DOL + var_name, var_value)
+                    var_name = ''
                 else:
-                    print("Command {} is not found\n".format(line))
+                    var_name += ch
 
-            else:
-                var, arg = line[0], line[1]
-                self.globals[var] = arg
-        else:
-            for i in range(len(line)):
-                for key, val in self.globals.items():
-                    line[i] = line[i].replace("${}".format(key), val)
+        return line
 
-            c, args = line[0], line[1:]
-            command = self.parse_command(c)
-            if command:
-                if PIPE in args:
-                    # if pipe was in arguments and was valid, it was split
-                    piped_args = []
-                    new_args = []
-                    for arg in args:
-                        if arg != PIPE:
-                            piped_args.append(arg)
-                        else:
-                            piped_args.append(new_args)
-                            new_args = []
-                    c_args, other_args = piped_args[0], piped_args[1:]
-                    # notice that we only have commands to be piped, or the arguments are incorrect
-                    try:
-                        result = command(c_args)
-                    except ValueError or TypeError:
-                        print("Incorrect arguments\n: {}".format(c_args))
-                        return
+    def remove_quotes(self, line: str) -> str:
+        single_quotes_count = line.count('\'')
+        double_quotes_count = line.count('\"')
+        if single_quotes_count % 2 != 0 or double_quotes_count % 2 != 0:
+            raise Exception("Incorrect command: odd number of single quotes")
 
-                    for arg in other_args:
-                        try:
-                            command = self.parse_command(arg)
-                            result = command(result)
-                        except ValueError or TypeError:
-                            print("Incorrect arguments: {}\n".format(result))
-                            return
+        line = line.replace('\'', '').replace('\"', '')
+        return line
 
-                    print(result, end='\n')
-                else:
-                    try:
-                        result = command(args)
-                        print(result, end='\n')
-                    except ValueError:
-                        print("Incorrect arguments: {}\n".format(args))
-            else:
-                print("Command {} is not found\n".format(line))
+    def check_assignment(self, line: str):
+        if line.count(' ') == 0 and line.count('\t') == 0 and EQ in line:
+            var, value = line.split(EQ)
+            if len(var) == 0 or '$' in var:
+                raise KeyError("Incorrect variable name: {}".format(var))
 
-    def parse_command(self, command: str):
-        """
-        Parse command and call one from factory
-        """
-        try:
-            method = getattr(self.factory, command)
-        except AttributeError:
-            raise NotImplementedError("command `{}` does not implemented".format(command))
+            self.globals[var] = value
+            return True
 
-        return method().execute
+        return False

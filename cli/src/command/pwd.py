@@ -1,12 +1,10 @@
-from src.command.command import Command
 import os
+
+from cli.src.command.command import Command
 
 
 class Pwd(Command):
     """Implementation of 'pwd' command"""
-    def execute(*args):
+    def execute(self, result, count, *args):
         """Begin command 'pwd' execution."""
         return os.getcwd()
-
-    def __str__(self):
-        return "pwd"

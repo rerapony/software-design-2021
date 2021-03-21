@@ -5,10 +5,6 @@ class Command(ABC):
     """The Command interface"""
 
     @abstractmethod
-    def execute(*args):
+    def execute(self, *args):
         """Begin command execution"""
-        pass
-
-    @abstractmethod
-    def __str__(self):
         pass

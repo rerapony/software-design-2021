@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 
-from src.command.command import Command
+from cli.src.command.command import Command
 
 
 class AbstractFactory(ABC):
