@@ -2,4 +2,4 @@
 
 Домашние задания:
 - CLI (cat, echo, wc, pwd, exit) (branch HW01)
-- Grep (TODO) (branch HW02)
+- grep (TODO) (branch HW02)
