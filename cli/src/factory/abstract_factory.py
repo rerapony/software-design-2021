@@ -35,3 +35,7 @@ class AbstractFactory(ABC):
     @abstractmethod
     def grep_cmd(self):
         pass
+
+    @abstractmethod
+    def cd_cmd(self):
+        pass

@@ -4,6 +4,7 @@ from cli.src.command.exit import Exit
 from cli.src.command.grep import Grep
 from cli.src.command.pwd import Pwd
 from cli.src.command.wc import Wc
+from cli.src.command.cd import Cd
 from cli.src.factory.abstract_factory import AbstractFactory
 
 
@@ -37,3 +38,6 @@ class CommandFactory(AbstractFactory):
 
     def grep_cmd(self):
         return Grep()
+
+    def cd_cmd(self):
+        return Cd()

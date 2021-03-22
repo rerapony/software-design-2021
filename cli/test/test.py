@@ -1,5 +1,6 @@
 import os
 import sys
+import pathlib
 
 import pytest
 
@@ -8,6 +9,7 @@ from cli.src.command.echo import Echo
 from cli.src.command.grep import Grep
 from cli.src.command.pwd import Pwd
 from cli.src.command.wc import Wc
+from cli.src.command.cd import Cd
 from cli.src.factory.command_factory import CommandFactory
 from cli.src.parser import Parser
 from cli.src.shell import Shell
@@ -137,3 +139,28 @@ def test_variables(args):
         data = output_file.read()
 
     assert command_ans == data
+
+
+@pytest.fixture(scope="function")
+def chdir():
+    start = pathlib.Path.cwd()
+    os.chdir("../..")
+    yield
+    os.chdir(start)
+
+
+@pytest.mark.parametrize("args", [["cli"], ["cli/src"], ["./cli"], [".."]])
+def test_cd(chdir, args):
+    start = pathlib.Path.cwd()
+    command = Cd()
+    command.execute('', 0, *args)
+    assert (start / args[0]).resolve() == pathlib.Path.cwd().resolve()
+    os.chdir(start)
+
+
+def test_cd_home():
+    start = pathlib.Path.cwd()
+    command = Cd()
+    command.execute('', 0)
+    assert pathlib.Path.home().resolve() == pathlib.Path.cwd().resolve()
+    os.chdir(start)
