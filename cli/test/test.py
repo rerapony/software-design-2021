@@ -11,17 +11,17 @@ from cli.src.factory.command_factory import CommandFactory
 from cli.src.parser import Parser
 from cli.src.shell import Shell
 
-TEST_FILE = os.path.join(sys.path[0], "temp.txt")
-INPUT_FILE = os.path.join(sys.path[0], "input_file.txt")
-OUTPUT_FILE = os.path.join(sys.path[0], "output_file.txt")
+TEST_FILE = os.path.join(sys.path[0], "cli/test/temp.txt")
+INPUT_FILE = os.path.join(sys.path[0], "cli/test/input_file.txt")
+OUTPUT_FILE = os.path.join(sys.path[0], "cli/test/output_file.txt")
 
 PWD_PATH = "/home/valeria/software-design-2021/cli/test"
 
 
 @pytest.mark.parametrize("args", [[TEST_FILE]])
 def test_cat_command(args):
-    with open(TEST_FILE, 'r') as file:
-        data = file.read()
+    with open(TEST_FILE, 'r') as test_file:
+        data = test_file.read()
 
     command = Cat()
     result = command.execute("", 0, *args)
@@ -63,8 +63,8 @@ def test_pipe(args):
     command_ans = args[1]
     command_args = args[0]
 
-    with open(INPUT_FILE, 'w') as f:
-        f.write(command_args)
+    with open(INPUT_FILE, 'w') as pipe_file:
+        pipe_file.write(command_args)
 
     open(OUTPUT_FILE, "w").close()
 
@@ -73,8 +73,8 @@ def test_pipe(args):
             shell = Shell(CommandFactory(), Parser(), input_file, output_file)
             shell.run_shell()
 
-    with open(OUTPUT_FILE, 'r') as file:
-        data = file.read()
+    with open(OUTPUT_FILE, 'r') as output_file:
+        data = output_file.read()
 
     assert command_ans == data
 
@@ -87,8 +87,8 @@ def test_quotes(args):
     command_ans = args[1]
     command_args = args[0]
 
-    with open(INPUT_FILE, 'w') as f:
-        f.write(command_args)
+    with open(INPUT_FILE, 'w') as input_file:
+        input_file.write(command_args)
 
     open(OUTPUT_FILE, "w").close()
 
@@ -97,8 +97,8 @@ def test_quotes(args):
             shell = Shell(CommandFactory(), Parser(), input_file, output_file)
             shell.run_shell()
 
-    with open(OUTPUT_FILE, 'r') as file:
-        data = file.read()
+    with open(OUTPUT_FILE, 'r') as output_file:
+        data = output_file.read()
 
     assert command_ans == data
 
@@ -111,8 +111,8 @@ def test_variables(args):
     command_ans = args[1]
     command_args = args[0]
 
-    with open(INPUT_FILE, 'w') as f:
-        f.write(command_args)
+    with open(INPUT_FILE, 'w') as input_file:
+        input_file.write(command_args)
 
     open(OUTPUT_FILE, "w").close()
 
@@ -121,7 +121,7 @@ def test_variables(args):
             shell = Shell(CommandFactory(), Parser(), input_file, output_file)
             shell.run_shell()
 
-    with open(OUTPUT_FILE, 'r') as file:
-        data = file.read()
+    with open(OUTPUT_FILE, 'r') as output_file:
+        data = output_file.read()
 
     assert command_ans == data

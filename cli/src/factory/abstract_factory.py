@@ -1,7 +1,5 @@
 from abc import ABC, abstractmethod
 
-from cli.src.command.command import Command
-
 
 class AbstractFactory(ABC):
     """Abstract CLI parser interface.
@@ -15,21 +13,21 @@ class AbstractFactory(ABC):
     """
 
     @abstractmethod
-    def cat(*args) -> Command:
+    def cat_cmd(self):
         pass
 
     @abstractmethod
-    def echo(*args) -> Command:
+    def echo_cmd(self):
         pass
 
     @abstractmethod
-    def pwd(*args) -> Command:
+    def pwd_cmd(self):
         pass
 
     @abstractmethod
-    def wc(*args) -> Command:
+    def wc_cmd(self):
         pass
 
     @abstractmethod
-    def exit(*args) -> Command:
+    def exit_cmd(self):
         pass

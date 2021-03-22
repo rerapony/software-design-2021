@@ -1,5 +1,4 @@
 from cli.src.command.cat import Cat
-from cli.src.command.command import Command
 from cli.src.command.echo import Echo
 from cli.src.command.exit import Exit
 from cli.src.command.pwd import Pwd
@@ -18,17 +17,17 @@ class CommandFactory(AbstractFactory):
     - wc
     - exit
     """
-    def cat(*args) -> Command:
+    def cat_cmd(self):
         return Cat()
 
-    def echo(*args) -> Command:
+    def echo_cmd(self):
         return Echo()
 
-    def pwd(*args) -> Command:
+    def pwd_cmd(self):
         return Pwd()
 
-    def wc(*args) -> Command:
+    def wc_cmd(self):
         return Wc()
 
-    def exit(*args) -> Command:
+    def exit_cmd(self):
         return Exit()

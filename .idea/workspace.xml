@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="bd4cd9ec-ea08-47f7-91cf-ca7731204a5d" name="Default Changelist" comment="Update main.yml">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cli/src/command/command.py" beforeDir="false" afterPath="$PROJECT_DIR$/cli/src/command/command.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cli/src/parser.py" beforeDir="false" afterPath="$PROJECT_DIR$/cli/src/parser.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cli/src/shell.py" beforeDir="false" afterPath="$PROJECT_DIR$/cli/src/shell.py" afterDir="false" />
+    </list>
+    <list id="1836dabe-cf61-4bc7-8240-2dbab07fdb7a" name="Revert &quot;Update main.yml&quot;" comment="Revert &quot;Update main.yml&quot;&#10;&#10;This reverts commit eb7b9418" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1q5PUbMDDfIeEglL4TDbKQP6Kvl" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="TODO_SCOPE" value="All Places" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="tests" factoryName="py.test">
+      <module name="software-design-2021" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="/usr/bin/python3.6" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/cli/test/test.py&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="pytest in test.py" type="tests" factoryName="py.test" nameIsGenerated="true">
+      <module name="software-design-2021" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="/usr/bin/python3.6" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/cli/test/test.py&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="bd4cd9ec-ea08-47f7-91cf-ca7731204a5d" name="Default Changelist" comment="" />
+      <created>1616366495273</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1616366495273</updated>
+      <workItem from="1616366498904" duration="6921000" />
+    </task>
+    <task id="LOCAL-00001" summary="fixed pylint">
+      <created>1616376485519</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1616376485519</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="fixed pylint" />
+    <MESSAGE value="Update main.yml" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update main.yml" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="451" y="211" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1616375747631">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="451" y="211" key="#com.intellij.execution.impl.EditConfigurationsDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1616375747631" />
+    <state x="194" y="100" width="1250" height="913" key="CommitChangelistDialog2" timestamp="1616377859060">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="194" y="100" width="1250" height="913" key="CommitChangelistDialog2/67.27.1853.1053@67.27.1853.1053" timestamp="1616377859060" />
+    <state x="776" y="311" width="424" height="491" key="FileChooserDialogImpl" timestamp="1616375701536">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="776" y="311" width="424" height="491" key="FileChooserDialogImpl/67.27.1853.1053@67.27.1853.1053" timestamp="1616375701536" />
+    <state width="1807" height="187" key="GridCell.Tab.0.bottom" timestamp="1616379316334">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state width="1807" height="187" key="GridCell.Tab.0.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1616379316334" />
+    <state width="1807" height="187" key="GridCell.Tab.0.center" timestamp="1616379316332">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state width="1807" height="187" key="GridCell.Tab.0.center/67.27.1853.1053@67.27.1853.1053" timestamp="1616379316332" />
+    <state width="1807" height="187" key="GridCell.Tab.0.left" timestamp="1616379316331">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state width="1807" height="187" key="GridCell.Tab.0.left/67.27.1853.1053@67.27.1853.1053" timestamp="1616379316331" />
+    <state width="1807" height="187" key="GridCell.Tab.0.right" timestamp="1616379316333">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state width="1807" height="187" key="GridCell.Tab.0.right/67.27.1853.1053@67.27.1853.1053" timestamp="1616379316333" />
+    <state width="1601" height="233" key="GridCell.Tab.1.bottom" timestamp="1616378042543">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state width="1601" height="233" key="GridCell.Tab.1.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1616378042543" />
+    <state width="1601" height="233" key="GridCell.Tab.1.center" timestamp="1616378042543">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state width="1601" height="233" key="GridCell.Tab.1.center/67.27.1853.1053@67.27.1853.1053" timestamp="1616378042543" />
+    <state width="1601" height="233" key="GridCell.Tab.1.left" timestamp="1616378042543">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state width="1601" height="233" key="GridCell.Tab.1.left/67.27.1853.1053@67.27.1853.1053" timestamp="1616378042543" />
+    <state width="1601" height="233" key="GridCell.Tab.1.right" timestamp="1616378042543">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state width="1601" height="233" key="GridCell.Tab.1.right/67.27.1853.1053@67.27.1853.1053" timestamp="1616378042543" />
+    <state x="874" y="421" width="238" height="290" key="MultipleFileMergeDialog" timestamp="1616377822191">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="874" y="421" width="238" height="290" key="MultipleFileMergeDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1616377822191" />
+    <state x="588" y="289" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1616376494605">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="588" y="289" width="800" height="535" key="Vcs.Push.Dialog.v2/67.27.1853.1053@67.27.1853.1053" timestamp="1616376494605" />
+    <state x="656" y="259" width="670" height="58" key="search.everywhere.popup" timestamp="1616369823477">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="656" y="259" width="670" height="58" key="search.everywhere.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1616369823477" />
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="tests">
+        <watch expression="getattr(self.factory, command_name)" language="Python" />
+        <watch expression="new_c = command_name + '_cmd'" language="Python" />
+      </configuration>
+    </watches-manager>
+  </component>
+</project>
