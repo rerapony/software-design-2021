@@ -39,3 +39,7 @@ class AbstractFactory(ABC):
     @abstractmethod
     def cd_cmd(self):
         pass
+
+    @abstractmethod
+    def ls_cmd(self):
+        pass

@@ -7,7 +7,7 @@ class Cd(Command):
     """Implementation of 'cd' command"""
 
     def execute(self, result, count, *args):
-        """Begin command 'wc' execution.
+        """Begin command 'cd' execution.
 
         Arguments:
         result -- ignored
@@ -15,6 +15,8 @@ class Cd(Command):
         args -- should have 0 or 1 element.
         If empty, then directory is changed to home directory.
         Else tries to change directory to 'arg[0]'
+
+        Returns nothing
         """
         if len(args) > 1:
             raise ValueError("too many arguments for cd command")
@@ -24,10 +26,11 @@ class Cd(Command):
             path = pathlib.Path.home()
         try:
             chdir(path)
-        except FileNotFoundError as e:
-            raise ValueError(f"The directory '{path}' does not exist, {pathlib.Path.cwd()}") from e
-        except NotADirectoryError as e:
-            raise ValueError(f"'{path}' is not a directory") from e
-        except PermissionError as e:
-            raise ValueError(f"Permission denied: '{path}'") from e
+        except FileNotFoundError as exc:
+            raise ValueError(f"The directory '{path}' does not exist,"
+                             f"{pathlib.Path.cwd()}") from exc
+        except NotADirectoryError as exc:
+            raise ValueError(f"'{path}' is not a directory") from exc
+        except PermissionError as exc:
+            raise ValueError(f"Permission denied: '{path}'") from exc
         return ''

@@ -10,6 +10,7 @@ from cli.src.command.grep import Grep
 from cli.src.command.pwd import Pwd
 from cli.src.command.wc import Wc
 from cli.src.command.cd import Cd
+from cli.src.command.ls import Ls
 from cli.src.factory.command_factory import CommandFactory
 from cli.src.parser import Parser
 from cli.src.shell import Shell
@@ -150,7 +151,7 @@ def chdir():
 
 
 @pytest.mark.parametrize("args", [["cli"], ["cli/src"], ["./cli"], [".."]])
-def test_cd(chdir, args):
+def test_cd(chdir, args):  # pylint: disable=W0621
     start = pathlib.Path.cwd()
     command = Cd()
     command.execute('', 0, *args)
@@ -164,3 +165,11 @@ def test_cd_home():
     command.execute('', 0)
     assert pathlib.Path.home().resolve() == pathlib.Path.cwd().resolve()
     os.chdir(start)
+
+
+@pytest.mark.parametrize("args,results", [([], 'README.txt cli input_file.txt output_file.txt'),
+                                          (["cli"], '__init__.py __pycache__ run_cli.py src test')])
+def test_ls(chdir, args, results):  # pylint: disable=W0621
+    command = Ls()
+    result = command.execute('', 0, *args)
+    assert result == results
