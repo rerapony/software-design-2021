@@ -31,3 +31,7 @@ class AbstractFactory(ABC):
     @abstractmethod
     def exit_cmd(self):
         pass
+
+    @abstractmethod
+    def grep_cmd(self):
+        pass
