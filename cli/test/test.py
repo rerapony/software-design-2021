@@ -5,6 +5,7 @@ import pytest
 
 from cli.src.command.cat import Cat
 from cli.src.command.echo import Echo
+from cli.src.command.grep import Grep
 from cli.src.command.pwd import Pwd
 from cli.src.command.wc import Wc
 from cli.src.factory.command_factory import CommandFactory
@@ -51,6 +52,17 @@ def test_wc_command(args):
     command_args = args[0]
 
     command = Wc()
+    result = command.execute("", 0, *command_args)
+
+    assert command_ans == result
+
+
+@pytest.mark.parametrize("args", [(['b', TEST_FILE], "bbbbbbbbbb")])
+def test_grep_command(args):
+    command_ans = args[1]
+    command_args = args[0]
+
+    command = Grep()
     result = command.execute("", 0, *command_args)
 
     assert command_ans == result
