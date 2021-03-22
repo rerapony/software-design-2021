@@ -1,5 +1,5 @@
-**Реозиторий для сдачи домашний заданий по курсу Software Design, ITMO 2021, SWE Master course**
+**Репозиторий для сдачи домашних заданий по курсу Software Design, ITMO 2021**
 
-Домашнии задания:
+Домашние задания:
 - CLI (cat, echo, wc, pwd, exit) (branch HW01)
 - Grep (TODO) (branch HW02)
