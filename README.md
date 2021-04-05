@@ -14,3 +14,16 @@
  `cd cli`
  
  `python3.6 ./run_cli.py`
+
+ -------------------------------
+**Диаграмма случаев использования**
+
+![use case diagram](./cli/img/use.png)
+
+**Диаграмма компонентов**
+
+![components diagram](./cli/img/uml.png)
+
+**Диаграмма последовательностей**
+
+![sequence diagram](./cli/img/seq.png)
